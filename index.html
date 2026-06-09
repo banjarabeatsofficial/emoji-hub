@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banjara Beats | Professional Emojipedia Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 🎨 PROFESSIONAL DESIGN TOKENS */
+        :root {
+            --brand-gold: #ffaa00;
+            --brand-red: #ff1a1a;
+            --success-green: #00ff66;
+            --bg-main: #050507;
+            --card-bg: #0f1015;
+            --text-main: #f5f5fa;
+            --text-muted: #a0a0ab;
+            --border-color: #181922;
+            --ad-bg: #090a0e;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-main: #f4f5f8;
+                --card-bg: #ffffff;
+                --text-main: #1a1a1e;
+                --text-muted: #666670;
+                --border-color: #e2e2e9;
+                --ad-bg: #eaeaea;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-main); padding-bottom: 60px; }
+
+        /* 👑 ARCHITECTURE LAYER 1: APP HEADER & NAVIGATION */
+        .app-header {
+            background-color: var(--card-bg); border-bottom: 3px solid var(--brand-gold);
+            padding: 15px 24px; text-align: center; box-shadow: 0 4px 25px rgba(255, 170, 0, 0.1);
+        }
+        .app-header h1 { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; color: var(--brand-gold); }
+        
+        .nav-container { max-width: 1200px; margin: 15px auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .back-btn {
+            padding: 10px 18px; background: var(--card-bg); color: var(--text-main); 
+            text-decoration: none; border-radius: 8px; font-weight: bold; border: 1px solid var(--border-color); transition: 0.2s;
+        }
+        .back-btn:hover { border-color: var(--brand-red); color: var(--brand-red); }
+
+        /* 🚀 ARCHITECTURE LAYER 2: HIGH-EARNING AD COMPONENTS */
+        .adsterra-box {
+            max-width: 1200px; margin: 15px auto; padding: 12px; background-color: var(--ad-bg); 
+            border: 1px solid var(--border-color); border-radius: 8px; text-align: center; display: flex; flex-direction: column; align-items: center;
+        }
+        
+        .smartlink-container { text-align: center; margin: 20px auto; width: 100%; padding: 0 20px; max-width: 1200px; }
+        .smartlink-btn {
+            display: inline-block; width: 100%; max-width: 500px; background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            color: white; font-weight: bold; padding: 14px; text-decoration: none; border-radius: 30px;
+            font-size: 1.1rem; box-shadow: 0 6px 20px rgba(255, 75, 43, 0.4); animation: pulse 1.5s infinite; border: 2px solid #fff; text-transform: uppercase;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+        /* 🔍 ARCHITECTURE LAYER 3: SMART SEARCH & FILTER CONTROLS */
+        .controls-wrapper { max-width: 1200px; margin: 20px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
+        .search-bar {
+            width: 100%; padding: 14px 20px; background-color: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 10px; color: var(--text-main); font-size: 1rem; font-weight: 500; outline: none; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .search-bar:focus { border-color: var(--brand-gold); }
+
+        .category-tabs { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; }
+        .category-tabs::-webkit-scrollbar { display: none; }
+        .cat-tab {
+            padding: 8px 16px; background-color: var(--card-bg); border: 1px solid var(--border-color);
+            color: var(--text-main); border-radius: 6px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s;
+        }
+        .cat-tab:hover, .cat-tab.active { border-color: var(--brand-gold); color: var(--brand-gold); background-color: rgba(255,170,0,0.04); }
+
+        /* 📦 ARCHITECTURE LAYER 4: DYNAMIC GRID SYSTEM */
+        .emoji-grid-section { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .grid-title {
+            font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 700; text-transform: uppercase;
+            display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+        }
+        .grid-title::before { content: ''; width: 6px; height: 22px; background: var(--brand-red); display: inline-block; border-radius: 2px; }
+
+        .emoji-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(95px, 1fr)); gap: 12px;
+        }
+        .emoji-card {
+            background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px;
+            padding: 16px 5px; text-align: center; cursor: pointer; font-size: 1.8rem; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; transition: all 0.15s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .emoji-card:hover { border-color: var(--brand-gold); transform: scale(1.04); box-shadow: 0 4px 12px rgba(255,170,0,0.12); }
+        .emoji-card.copied { border-color: var(--success-green); background-color: rgba(0, 255, 102, 0.05); }
+        .emoji-tag { font-size: 0.65rem; color: var(--brand-gold); font-weight: 700; margin-top: 6px; text-transform: uppercase; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        .loading-state { text-align: center; padding: 40px; font-weight: bold; color: var(--text-muted); font-size: 1.1rem; }
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-muted); margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <!-- LAYER 1: HEADER -->
+    <header class="app-header">
+        <h1>⚡ Professional Emojipedia ⚡</h1>
+        <p style="font-size: 0.85rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase;">Zero Trash • Pure Performance</p>
+    </header>
+
+    <div class="nav-container">
+        <!-- 🔗 इथे तुमच्या मुख्य बंजारा बीट्स साईटची लिंक ऑटोमॅटिक काम करेल -->
+        <a href="https://banjarabeatsofficial.github.io" class="back-btn">⬅ Banjara Beats Main Site</a>
+    </div>
+
+    <!-- LAYER 2: TOP ADS & SMARTLINK -->
+    <div class="smartlink-container">
+        <a href="https://www.effectivecpmnetwork.com/u5e627c3w?key=7eb8d73f8d7280b4b6b839b05507bab4" target="_blank" class="smartlink-btn">
+            🔥 Get Secret VIP Symbols & Bios 🔥
+        </a>
+    </div>
+
+    <div class="adsterra-box">
+        <p style="color: var(--text-muted); font-size: 0.7rem; margin-bottom: 6px;">Sponsored Advertisement</p>
+        <script async="async" data-cfasync="false" src="https://pl29627359.effectivecpmnetwork.com/3ec6a6a3f76b75b446c4a7c749c8a235/invoke.js"></script>
+        <div id="container-3ec6a6a3f76b75b446c4a7c749c8a235"></div>
+    </div>
+
+    <!-- LAYER 3: FILTERS & CONTROLS -->
+    <div class="controls-wrapper">
+        <input type="text" id="emojiSearch" class="search-bar" placeholder="कोणताही इमोजी शोधा... (उदा. Smile, Heart, Fire)...">
+        <div class="category-tabs" id="categoryTabs">
+            <div class="cat-tab active" data-cat="all">All Emojis</div>
+            <div class="cat-tab" data-cat="smileys">Smileys & Faces</div>
+            <div class="cat-tab" data-cat="people">People & Body</div>
+            <div class="cat-tab" data-cat="animals">Animals & Nature</div>
+            <div class="cat-tab" data-cat="objects">Objects & VIP Symbols</div>
+        </div>
+    </div>
+
+    <!-- LAYER 4: DYNAMIC RENDERING GRID -->
+    <main class="emoji-grid-section">
+        <div class="grid-title" id="gridTitle">All Emojis</div>
+        <div id="loading" class="loading-state">सिस्टीम लोड होत आहे... कृपया थांबा... ⚡</div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+    </main>
+
+    <!-- LAYER 2: MIDDLE AD BANNER -->
+    <div class="adsterra-box" style="margin-top: 40px;">
+        <p style="color: var(--text-muted); font-size: 0.7rem; margin-bottom: 6px;">Sponsored Advertisement</p>
+        <script async="async" data-cfasync="false" src="https://pl29627359.effectivecpmnetwork.com/3ec6a6a3f76b75b446c4a7c749c8a235/invoke.js"></script>
+        <div id="container-3ec6a6a3f76b75b446c4a7c749c8a235"></div>
+    </div>
+
+    <footer>
+        <p>© 2026 Banjara Beats Official | Built With Clean Engineering. 🔥</p>
+    </footer>
+
+    <!-- 🧠 ARCHITECTURE LAYER 5: INTERACTION & DATA LOGIC (NO TRASH) -->
+    <script>
+        const EMOJI_API = 'https://openapi.programming-hero.com/api/emojis';
+        let ALL_EMOJIS = [];
+
+        async function fetchEmojiEngine() {
+            try {
+                const response = await fetch(EMOJI_API);
+                const data = await response.json();
+                ALL_EMOJIS = data.data;
+                document.getElementById('loading').style.display = 'none';
+                renderEmojis(ALL_EMOJIS);
+            } catch (error) {
+                document.getElementById('loading').innerHTML = "डेटाबेस लोड करताना अडचण आली! कृपया पेज रिफ्रेश करा. ❌";
+            }
+        }
+
+        function renderEmojis(emojiList) {
+            const grid = document.getElementById('emojiGrid');
+            grid.innerHTML = '';
+            
+            if(emojiList.length === 0) {
+                grid.innerHTML = '<div class="loading-state" style="grid-column: 1/-1;">काहीही सापडले नाही! दुसरा शब्द टाईप करा. 🔍</div>';
+                return;
+            }
+
+            emojiList.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'emoji-card';
+                card.onclick = () => copySystem(card, item.emoji);
+                
+                card.innerHTML = `
+                    <span>${item.emoji}</span>
+                    <div class="emoji-tag">${item.slug.split('-')[0]}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function copySystem(element, emojiText) {
+            navigator.clipboard.writeText(emojiText).then(() => {
+                element.classList.add('copied');
+                setTimeout(() => element.classList.remove('copied'), 1000);
+            });
+        }
+
+        document.getElementById('emojiSearch').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const filtered = ALL_EMOJIS.filter(item => item.slug.toLowerCase().includes(query));
+            renderEmojis(filtered);
+        });
+
+        document.getElementById('categoryTabs').addEventListener('click', (e) => {
+            if(!e.target.classList.contains('cat-tab')) return;
+            
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            const category = e.target.getAttribute('data-cat');
+            document.getElementById('gridTitle').innerText = e.target.innerText;
+
+            if(category === 'all') {
+                renderEmojis(ALL_EMOJIS);
+            } else {
+                const filtered = ALL_EMOJIS.filter(item => item.category.toLowerCase().includes(category.substring(0,4)));
+                renderEmojis(filtered);
+            }
+        });
+
+        fetchEmojiEngine();
+    </script>
+</body>
+</html>
